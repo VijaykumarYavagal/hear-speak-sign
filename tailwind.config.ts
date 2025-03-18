@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -142,10 +141,10 @@ export default {
 				'scale-in': 'scale-in 0.5s ease-out',
 				'float': 'float 6s ease-in-out infinite',
 				'pulse': 'pulse 3s ease-in-out infinite',
-				'border-run-right': 'border-run-right 3s infinite linear',
-				'border-run-left': 'border-run-left 3s infinite linear',
-				'border-run-down': 'border-run-down 3s infinite linear',
-				'border-run-up': 'border-run-up 3s infinite linear'
+				'border-run-right': 'border-run-right 8s infinite linear',
+				'border-run-left': 'border-run-left 8s infinite linear',
+				'border-run-down': 'border-run-down 8s infinite linear',
+				'border-run-up': 'border-run-up 8s infinite linear'
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
