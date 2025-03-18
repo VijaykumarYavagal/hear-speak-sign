@@ -10,12 +10,19 @@ interface StepCardProps {
 const StepCard = ({ number, title, children }: StepCardProps) => {
   return (
     <div className="flex flex-col items-center text-center relative group">
-      {/* Animated border overlay */}
-      <div className="absolute inset-0 rounded-xl border border-sign-primary/20 overflow-hidden">
-        <div className="absolute top-0 left-[-100%] w-[200%] h-[2px] primary-gradient animate-slide-right"></div>
-        <div className="absolute bottom-0 right-[-100%] w-[200%] h-[2px] primary-gradient animate-slide-left"></div>
-        <div className="absolute right-0 top-[-100%] h-[200%] w-[2px] primary-gradient animate-slide-down"></div>
-        <div className="absolute left-0 bottom-[-100%] h-[200%] w-[2px] primary-gradient animate-slide-up"></div>
+      {/* Container with subtle border */}
+      <div className="absolute inset-0 rounded-xl border border-sign-primary/10 overflow-hidden">
+        {/* Top running light */}
+        <div className="absolute top-0 left-0 w-24 h-[2px] primary-gradient animate-border-run-right"></div>
+        
+        {/* Right running light */}
+        <div className="absolute top-0 right-0 h-24 w-[2px] primary-gradient animate-border-run-down"></div>
+        
+        {/* Bottom running light */}
+        <div className="absolute bottom-0 right-0 w-24 h-[2px] primary-gradient animate-border-run-left"></div>
+        
+        {/* Left running light */}
+        <div className="absolute bottom-0 left-0 h-24 w-[2px] primary-gradient animate-border-run-up"></div>
       </div>
       
       <div className="p-6 z-10">
