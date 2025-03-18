@@ -1,5 +1,5 @@
 
-import { ReactNode, useEffect, useRef } from 'react';
+import { ReactNode } from 'react';
 
 interface StepCardProps {
   number: string;
