@@ -68,7 +68,7 @@ export default {
 					secondary: "#FF9F5A",
 					dark: "#121212",
 					light: "#FFFFFF",
-					muted: "#F5F5F7",
+					muted: "#1F1F1F",
 					"muted-foreground": "#86868b",
 					accent: "#2563EB",
 				}
@@ -107,9 +107,13 @@ export default {
 					'0%': { opacity: '0', transform: 'scale(0.95)' },
 					'100%': { opacity: '1', transform: 'scale(1)' }
 				},
-				float: {
+				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' }
+				},
+				'pulse': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.7' }
 				}
 			},
 			animation: {
@@ -120,7 +124,8 @@ export default {
 				'slide-in': 'slide-in 0.5s ease-out',
 				'slide-out': 'slide-out 0.5s ease-out',
 				'scale-in': 'scale-in 0.5s ease-out',
-				'float': 'float 6s ease-in-out infinite'
+				'float': 'float 6s ease-in-out infinite',
+				'pulse': 'pulse 3s ease-in-out infinite'
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],

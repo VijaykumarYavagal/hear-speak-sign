@@ -39,7 +39,7 @@ const Index = () => {
         ref={heroRef}
         className="min-h-screen relative flex items-center justify-center pt-20 pb-20 px-4"
       >
-        <div className="absolute inset-0 z-[-1] bg-gradient-to-b from-sign-muted to-background"></div>
+        <div className="absolute inset-0 z-[-1] bg-gradient-to-b from-sign-dark to-background"></div>
         
         {/* Decorative circles */}
         <div className="absolute top-40 left-10 w-64 h-64 rounded-full primary-gradient opacity-10 blur-3xl"></div>
@@ -137,14 +137,14 @@ const Index = () => {
       {/* How It Works Section */}
       <section
         ref={howItWorksRef}
-        className="py-24 px-4 bg-muted"
+        className="py-24 px-4 bg-sign-dark"
       >
         <div className="container mx-auto">
           <div className="text-center mb-16 animate-on-scroll opacity-0">
-            <h2 className="section-heading">
+            <h2 className="section-heading text-white">
               How It Works
             </h2>
-            <p className="section-subheading">
+            <p className="section-subheading text-sign-muted-foreground">
               Three simple steps to start breaking down communication barriers and connecting through sign language.
             </p>
           </div>
@@ -180,22 +180,33 @@ const Index = () => {
       </section>
 
       {/* Testimonial/CTA Section */}
-      <section className="py-24 px-4 relative">
-        <div className="absolute inset-0 z-[-1] bg-gradient-to-b from-background via-sign-primary/5 to-background"></div>
+      <section className="py-24 px-4 relative bg-sign-dark">
+        <div className="absolute inset-0 z-[-1] bg-gradient-to-b from-sign-dark via-sign-dark to-background"></div>
         
         <div className="container mx-auto">
-          <div className="glass-card p-10 md:p-16 max-w-5xl mx-auto">
-            <div className="text-center animate-on-scroll opacity-0">
-              <h2 className="text-3xl md:text-4xl font-bold mb-8">
+          <div className="cta-card p-10 md:p-16 max-w-5xl mx-auto relative overflow-hidden">
+            {/* Running edge light animation */}
+            <div className="absolute inset-0 rounded-xl border border-sign-primary/20 overflow-hidden">
+              <div className="absolute top-0 left-[-100%] w-[200%] h-[2px] primary-gradient animate-slide-right"></div>
+              <div className="absolute bottom-0 right-[-100%] w-[200%] h-[2px] primary-gradient animate-slide-left"></div>
+              <div className="absolute right-0 top-[-100%] h-[200%] w-[2px] primary-gradient animate-slide-down"></div>
+              <div className="absolute left-0 bottom-[-100%] h-[200%] w-[2px] primary-gradient animate-slide-up"></div>
+            </div>
+            
+            {/* Glow effect */}
+            <div className="absolute -inset-0.5 bg-sign-primary/10 blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+            
+            <div className="text-center animate-on-scroll opacity-0 relative z-10">
+              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">
                 Join Thousands Breaking Communication Barriers
               </h2>
-              <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
+              <p className="text-xl text-sign-muted-foreground mb-12 max-w-3xl mx-auto">
                 Start your journey today and be part of our growing community dedicated to making communication accessible for everyone.
               </p>
               <Button className="hero-cta primary-gradient text-white hover:opacity-90 hover:scale-105">
                 Get Started For Free
               </Button>
-              <p className="mt-6 text-sm text-muted-foreground">
+              <p className="mt-6 text-sm text-sign-muted-foreground">
                 No credit card required. Start with our free tier and upgrade anytime.
               </p>
             </div>
