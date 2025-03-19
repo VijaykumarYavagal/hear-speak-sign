@@ -141,7 +141,23 @@ const SignRecognition = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 relative">
+      {/* Border animation that goes around the entire component */}
+      <div className="absolute inset-0 rounded-xl overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-[2px] overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-reverse"></div>
+        </div>
+        <div className="absolute bottom-0 left-0 w-full h-[2px] overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-reverse"></div>
+        </div>
+        <div className="absolute left-0 top-0 w-[2px] h-full overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#f25f30] to-transparent animate-border-vertical-reverse"></div>
+        </div>
+        <div className="absolute right-0 top-0 w-[2px] h-full overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#f25f30] to-transparent animate-border-vertical-reverse"></div>
+        </div>
+      </div>
+      
       {/* Webcam section */}
       <div className="relative">
         <div className={`rounded-xl overflow-hidden shadow-xl transition-all duration-500 ${isWebcamActive ? 'border-2 border-sign-primary pulse-border' : 'border border-white/10'}`}>
@@ -155,7 +171,11 @@ const SignRecognition = () => {
           
           {!isWebcamActive && (
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 backdrop-blur-sm">
-              <Camera className="w-16 h-16 text-white/50 mb-4" />
+              <img 
+                src="/lovable-uploads/eaaca544-95f4-48f4-b670-0bca9c80a0a7.png" 
+                alt="Sign Language Recognition" 
+                className="w-64 h-auto mb-6"
+              />
               <Button 
                 onClick={startWebcam}
                 className="primary-gradient text-white hover:opacity-90 flex items-center space-x-2"

@@ -43,9 +43,6 @@ const Navbar = () => {
           
           {/* Desktop menu */}
           <nav className="hidden md:flex items-center space-x-6">
-            <Link to="/" className="text-foreground hover:text-sign-primary transition-colors duration-200">
-              Home
-            </Link>
             <Link to="/recognition" className="text-foreground hover:text-sign-primary transition-colors duration-200">
               Live Recognition
             </Link>
@@ -67,10 +64,15 @@ const Navbar = () => {
           </nav>
           
           <div className="hidden md:flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
-              <Sun className="h-4 w-4" />
-              <Switch id="theme-toggle" onCheckedChange={toggleTheme} />
-              <Moon className="h-4 w-4" />
+            <div className="flex items-center">
+              <Switch 
+                id="theme-toggle" 
+                onCheckedChange={toggleTheme} 
+                className="relative"
+              >
+                <Sun className="absolute left-0.5 top-0.5 h-4 w-4 scale-0 transition-all dark:scale-100" />
+                <Moon className="absolute right-0.5 top-0.5 h-4 w-4 scale-100 transition-all dark:scale-0" />
+              </Switch>
             </div>
             <Button className="hero-cta primary-gradient text-white hover:opacity-90 hover:scale-105">
               Get Started
@@ -92,13 +94,6 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden glass-card mt-2 mx-4 py-6 px-4 animate-scale-in">
           <nav className="flex flex-col space-y-4">
-            <Link 
-              to="/" 
-              className="text-foreground hover:text-sign-primary transition-colors duration-200 py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
             <Link 
               to="/recognition" 
               className="text-foreground hover:text-sign-primary transition-colors duration-200 py-2"
@@ -142,9 +137,14 @@ const Navbar = () => {
               Reports
             </Link>
             <div className="flex items-center space-x-2 py-2">
-              <Sun className="h-4 w-4" />
-              <Switch id="mobile-theme-toggle" onCheckedChange={toggleTheme} />
-              <Moon className="h-4 w-4" />
+              <Switch 
+                id="mobile-theme-toggle" 
+                onCheckedChange={toggleTheme}
+                className="relative"
+              >
+                <Sun className="absolute left-0.5 top-0.5 h-4 w-4 scale-0 transition-all dark:scale-100" />
+                <Moon className="absolute right-0.5 top-0.5 h-4 w-4 scale-100 transition-all dark:scale-0" />
+              </Switch>
             </div>
             <Button 
               className="hero-cta primary-gradient text-white w-full mt-2"

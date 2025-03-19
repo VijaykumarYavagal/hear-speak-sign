@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -129,6 +130,12 @@ export default {
 				'border-run-up': {
 					'0%': { transform: 'translateY(500%)' },
 					'100%': { transform: 'translateY(-100%)' }
+				},
+				'border-vertical-reverse': {
+					'0%': { transform: 'translateY(-100%)', opacity: '0.3' },
+					'40%': { transform: 'translateY(100%)', opacity: '1' },
+					'80%': { transform: 'translateY(-100%)', opacity: '1' },
+					'100%': { transform: 'translateY(-100%)', opacity: '0.3' }
 				}
 			},
 			animation: {
@@ -144,7 +151,8 @@ export default {
 				'border-run-right': 'border-run-right 8s infinite linear',
 				'border-run-left': 'border-run-left 8s infinite linear',
 				'border-run-down': 'border-run-down 8s infinite linear',
-				'border-run-up': 'border-run-up 8s infinite linear'
+				'border-run-up': 'border-run-up 8s infinite linear',
+				'border-vertical-reverse': 'border-vertical-reverse 8s infinite ease-in-out'
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
