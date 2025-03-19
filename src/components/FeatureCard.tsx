@@ -12,8 +12,10 @@ const FeatureCard = ({ title, description, icon: Icon }: FeatureCardProps) => {
     <div className="feature-card group relative">
       {/* Container with subtle border */}
       <div className="absolute inset-0 rounded-xl border border-white/10 overflow-hidden">
-        {/* Bottom running light */}
-        <div className="absolute bottom-0 left-0 w-36 h-[2px] bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-run-right"></div>
+        {/* Bottom running light with longer line and reverse animation */}
+        <div className="absolute bottom-0 left-0 w-80 h-[2px] overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-reverse"></div>
+        </div>
       </div>
       
       <div className="p-6 z-10 relative">

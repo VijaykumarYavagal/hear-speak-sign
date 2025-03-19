@@ -1,12 +1,15 @@
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Camera, Settings, Moon, Sun, Languages } from 'lucide-react';
 import { Button } from './ui/button';
+import { useTheme } from '@/context/ThemeContext';
+import { Switch } from './ui/switch';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,22 +42,36 @@ const Navbar = () => {
           </Link>
           
           {/* Desktop menu */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
             <Link to="/" className="text-foreground hover:text-sign-primary transition-colors duration-200">
               Home
+            </Link>
+            <Link to="/recognition" className="text-foreground hover:text-sign-primary transition-colors duration-200">
+              Live Recognition
+            </Link>
+            <Link to="/languages" className="text-foreground hover:text-sign-primary transition-colors duration-200">
+              Supported Languages
             </Link>
             <Link to="/about" className="text-foreground hover:text-sign-primary transition-colors duration-200">
               About
             </Link>
-            <Link to="/services" className="text-foreground hover:text-sign-primary transition-colors duration-200">
-              Services
-            </Link>
             <Link to="/contact" className="text-foreground hover:text-sign-primary transition-colors duration-200">
               Contact
             </Link>
+            <Link to="/progress" className="text-foreground hover:text-sign-primary transition-colors duration-200">
+              Progress
+            </Link>
+            <Link to="/reports" className="text-foreground hover:text-sign-primary transition-colors duration-200">
+              Reports
+            </Link>
           </nav>
           
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center space-x-4">
+            <div className="flex items-center space-x-2">
+              <Sun className="h-4 w-4" />
+              <Switch id="theme-toggle" onCheckedChange={toggleTheme} />
+              <Moon className="h-4 w-4" />
+            </div>
             <Button className="hero-cta primary-gradient text-white hover:opacity-90 hover:scale-105">
               Get Started
             </Button>
@@ -83,18 +100,25 @@ const Navbar = () => {
               Home
             </Link>
             <Link 
+              to="/recognition" 
+              className="text-foreground hover:text-sign-primary transition-colors duration-200 py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Live Recognition
+            </Link>
+            <Link 
+              to="/languages" 
+              className="text-foreground hover:text-sign-primary transition-colors duration-200 py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Supported Languages
+            </Link>
+            <Link 
               to="/about" 
               className="text-foreground hover:text-sign-primary transition-colors duration-200 py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               About
-            </Link>
-            <Link 
-              to="/services" 
-              className="text-foreground hover:text-sign-primary transition-colors duration-200 py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Services
             </Link>
             <Link 
               to="/contact" 
@@ -103,6 +127,25 @@ const Navbar = () => {
             >
               Contact
             </Link>
+            <Link 
+              to="/progress" 
+              className="text-foreground hover:text-sign-primary transition-colors duration-200 py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Progress
+            </Link>
+            <Link 
+              to="/reports" 
+              className="text-foreground hover:text-sign-primary transition-colors duration-200 py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Reports
+            </Link>
+            <div className="flex items-center space-x-2 py-2">
+              <Sun className="h-4 w-4" />
+              <Switch id="mobile-theme-toggle" onCheckedChange={toggleTheme} />
+              <Moon className="h-4 w-4" />
+            </div>
             <Button 
               className="hero-cta primary-gradient text-white w-full mt-2"
               onClick={() => setIsMenuOpen(false)}

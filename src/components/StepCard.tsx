@@ -12,8 +12,10 @@ const StepCard = ({ number, title, children }: StepCardProps) => {
     <div className="flex flex-col items-center text-center relative group">
       {/* Container with subtle border */}
       <div className="absolute inset-0 rounded-xl border border-white/10 overflow-hidden">
-        {/* Top running light */}
-        <div className="absolute top-0 left-0 w-36 h-[2px] bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-run-right"></div>
+        {/* Top running light with longer line and reverse animation */}
+        <div className="absolute top-0 left-0 w-80 h-[2px] overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-reverse"></div>
+        </div>
       </div>
       
       <div className="p-6 z-10">
