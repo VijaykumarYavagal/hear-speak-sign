@@ -67,11 +67,14 @@ const Navbar = () => {
             <div className="flex items-center">
               <Switch 
                 id="theme-toggle" 
+                checked={theme === 'dark'}
                 onCheckedChange={toggleTheme} 
                 className="relative"
               >
-                <Sun className="absolute left-0.5 top-0.5 h-4 w-4 scale-0 transition-all dark:scale-100" />
-                <Moon className="absolute right-0.5 top-0.5 h-4 w-4 scale-100 transition-all dark:scale-0" />
+                <div className="absolute inset-0 flex items-center justify-between px-1 z-10 pointer-events-none">
+                  <Sun className="h-4 w-4 text-white" />
+                  <Moon className="h-4 w-4 text-white" />
+                </div>
               </Switch>
             </div>
             <Button className="hero-cta primary-gradient text-white hover:opacity-90 hover:scale-105">
@@ -139,11 +142,14 @@ const Navbar = () => {
             <div className="flex items-center space-x-2 py-2">
               <Switch 
                 id="mobile-theme-toggle" 
+                checked={theme === 'dark'}
                 onCheckedChange={toggleTheme}
                 className="relative"
               >
-                <Sun className="absolute left-0.5 top-0.5 h-4 w-4 scale-0 transition-all dark:scale-100" />
-                <Moon className="absolute right-0.5 top-0.5 h-4 w-4 scale-100 transition-all dark:scale-0" />
+                <div className="absolute inset-0 flex items-center justify-between px-1 z-10 pointer-events-none">
+                  <Sun className="h-4 w-4 text-white" />
+                  <Moon className="h-4 w-4 text-white" />
+                </div>
               </Switch>
             </div>
             <Button 

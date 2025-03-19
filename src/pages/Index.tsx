@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Video, MessageSquare, BookOpen, Users } from 'lucide-react';
@@ -66,7 +67,7 @@ const Index = () => {
             <div className="relative animate-fade-in">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src="/lovable-uploads/38f0779f-4570-4e7f-b48c-1d92e36ae24d.png" 
+                  src="https://sigmawire.net/i/03/aOFgVh.png" 
                   alt="Two people communicating through sign language" 
                   className="w-full h-auto object-cover rounded-2xl"
                   loading="lazy"
