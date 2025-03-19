@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Video, MessageSquare, BookOpen, Users } from 'lucide-react';
@@ -11,7 +10,6 @@ const Index = () => {
   const featuresRef = useRef<HTMLDivElement>(null);
   const howItWorksRef = useRef<HTMLDivElement>(null);
 
-  // Animation on scroll
   useEffect(() => {
     const handleScroll = () => {
       const elements = document.querySelectorAll('.animate-on-scroll');
@@ -34,14 +32,12 @@ const Index = () => {
 
   return (
     <div className="overflow-hidden">
-      {/* Hero Section */}
       <section 
         ref={heroRef}
         className="min-h-screen relative flex items-center justify-center pt-20 pb-20 px-4"
       >
         <div className="absolute inset-0 z-[-1] bg-gradient-to-b from-sign-dark to-background"></div>
         
-        {/* Decorative circles */}
         <div className="absolute top-40 left-10 w-64 h-64 rounded-full primary-gradient opacity-10 blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-sign-accent opacity-10 blur-3xl"></div>
         
@@ -70,7 +66,7 @@ const Index = () => {
             <div className="relative animate-fade-in">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src="/public/lovable-uploads/38f0779f-4570-4e7f-b48c-1d92e36ae24d.png" 
+                  src="/lovable-uploads/38f0779f-4570-4e7f-b48c-1d92e36ae24d.png" 
                   alt="Two people communicating through sign language" 
                   className="w-full h-auto object-cover rounded-2xl"
                   loading="lazy"
@@ -83,7 +79,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section
         ref={featuresRef} 
         className="py-24 px-4"
@@ -134,7 +129,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
       <section
         ref={howItWorksRef}
         className="py-24 px-4 bg-sign-dark"
@@ -179,13 +173,16 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonial/CTA Section */}
       <section className="py-24 px-4 relative bg-sign-dark">
         <div className="absolute inset-0 z-[-1] bg-gradient-to-b from-sign-dark via-sign-dark to-background"></div>
         
         <div className="container mx-auto">
           <div className="cta-card p-10 md:p-16 max-w-5xl mx-auto relative overflow-hidden">
-            {/* Running edge light animation */}
+            <div className="absolute inset-0 rounded-xl border border-white/10 overflow-hidden">
+              <div className="absolute top-0 left-0 w-36 h-[2px] bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-run-right"></div>
+              <div className="absolute bottom-0 right-0 w-36 h-[2px] bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-run-left"></div>
+            </div>
+            
             <div className="absolute inset-0 rounded-xl border border-sign-primary/20 overflow-hidden">
               <div className="absolute top-0 left-[-100%] w-[200%] h-[2px] primary-gradient animate-slide-right"></div>
               <div className="absolute bottom-0 right-[-100%] w-[200%] h-[2px] primary-gradient animate-slide-left"></div>
@@ -193,7 +190,6 @@ const Index = () => {
               <div className="absolute left-0 bottom-[-100%] h-[200%] w-[2px] primary-gradient animate-slide-up"></div>
             </div>
             
-            {/* Glow effect */}
             <div className="absolute -inset-0.5 bg-sign-primary/10 blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
             
             <div className="text-center animate-on-scroll opacity-0 relative z-10">
