@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
@@ -206,19 +207,19 @@
 }
 
 .animate-border-run-right {
-  animation: border-run-right 12s infinite ease-in-out;
+  animation: border-run-right 8s infinite ease-in-out;
 }
 
 .animate-border-run-left {
-  animation: border-run-left 12s infinite ease-in-out;
+  animation: border-run-left 8s infinite ease-in-out;
 }
 
 .animate-border-reverse {
-  animation: border-reverse 12s infinite ease-in-out;
+  animation: border-reverse 8s infinite ease-in-out;
 }
 
 .animate-border-vertical-reverse {
-  animation: border-vertical-reverse 12s infinite ease-in-out;
+  animation: border-vertical-reverse 8s infinite ease-in-out;
 }
 
 .animate-shake {
@@ -261,4 +262,3 @@
 .animate-slide-up {
   animation: slide-up 2.5s linear infinite;
 }
-

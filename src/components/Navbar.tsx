@@ -1,15 +1,13 @@
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Camera, Settings, Moon, Sun, Languages } from 'lucide-react';
+import { Menu, X, Camera, Settings, Languages } from 'lucide-react';
 import { Button } from './ui/button';
-import { useTheme } from '@/context/ThemeContext';
-import { Switch } from './ui/switch';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,19 +62,7 @@ const Navbar = () => {
           </nav>
           
           <div className="hidden md:flex items-center space-x-4">
-            <div className="flex items-center">
-              <Switch 
-                id="theme-toggle" 
-                checked={theme === 'dark'}
-                onCheckedChange={toggleTheme} 
-                className="relative"
-              >
-                <div className="absolute inset-0 flex items-center justify-between px-1 z-10 pointer-events-none">
-                  <Sun className="h-4 w-4 text-white" />
-                  <Moon className="h-4 w-4 text-white" />
-                </div>
-              </Switch>
-            </div>
+            <ThemeToggle />
             <Button className="hero-cta primary-gradient text-white hover:opacity-90 hover:scale-105">
               Get Started
             </Button>
@@ -139,18 +125,8 @@ const Navbar = () => {
             >
               Reports
             </Link>
-            <div className="flex items-center space-x-2 py-2">
-              <Switch 
-                id="mobile-theme-toggle" 
-                checked={theme === 'dark'}
-                onCheckedChange={toggleTheme}
-                className="relative"
-              >
-                <div className="absolute inset-0 flex items-center justify-between px-1 z-10 pointer-events-none">
-                  <Sun className="h-4 w-4 text-white" />
-                  <Moon className="h-4 w-4 text-white" />
-                </div>
-              </Switch>
+            <div className="flex items-center py-2">
+              <ThemeToggle />
             </div>
             <Button 
               className="hero-cta primary-gradient text-white w-full mt-2"

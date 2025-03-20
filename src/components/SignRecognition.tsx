@@ -1,6 +1,5 @@
-
 import { useState, useRef, useEffect } from 'react';
-import { Camera, X, Video, Settings, Volume2 } from 'lucide-react';
+import { Video, X, Settings, Volume2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { useToast } from '@/hooks/use-toast';
@@ -143,7 +142,7 @@ const SignRecognition = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 relative">
       {/* Border animation that goes around the entire component */}
-      <div className="absolute inset-0 rounded-xl overflow-hidden">
+      <div className="absolute inset-0 rounded-xl border border-white/10 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-[2px] overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-reverse"></div>
         </div>
@@ -171,11 +170,6 @@ const SignRecognition = () => {
           
           {!isWebcamActive && (
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 backdrop-blur-sm">
-              <img 
-                src="/lovable-uploads/eaaca544-95f4-48f4-b670-0bca9c80a0a7.png" 
-                alt="Sign Language Recognition" 
-                className="w-64 h-auto mb-6"
-              />
               <Button 
                 onClick={startWebcam}
                 className="primary-gradient text-white hover:opacity-90 flex items-center space-x-2"

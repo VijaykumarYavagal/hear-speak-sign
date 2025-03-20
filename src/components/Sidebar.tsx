@@ -12,18 +12,15 @@ import {
   Bookmark,
   ChevronLeft,
   ChevronRight,
-  LogOut,
-  Sun,
-  Moon
+  LogOut
 } from 'lucide-react';
 import { Button } from './ui/button';
-import { useTheme } from '@/context/ThemeContext';
 import { Switch } from './ui/switch';
+import ThemeToggle from './ThemeToggle';
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [webcamEnabled, setWebcamEnabled] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
@@ -154,25 +151,13 @@ const Sidebar = () => {
         
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-3">
-            {theme === 'dark' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+            <Settings className="w-5 h-5" />
             {!isCollapsed && <span>Theme</span>}
           </div>
           {!isCollapsed ? (
-            <Switch 
-              checked={theme === 'dark'} 
-              onCheckedChange={toggleTheme}
-              className="relative"
-            >
-              <div className="absolute inset-0 flex items-center justify-between px-1 z-10 pointer-events-none">
-                <Sun className="h-4 w-4 text-white" />
-                <Moon className="h-4 w-4 text-white" />
-              </div>
-            </Switch>
+            <ThemeToggle />
           ) : (
-            <div 
-              className={`w-3 h-3 rounded-full cursor-pointer ${theme === 'dark' ? 'bg-sign-primary' : 'bg-yellow-400'}`}
-              onClick={toggleTheme}
-            ></div>
+            <ThemeToggle compact={true} />
           )}
         </div>
         
