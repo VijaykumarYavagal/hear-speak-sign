@@ -44,9 +44,11 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     if (theme === 'dark') {
       root.classList.remove('light');
       root.classList.add('dark');
+      document.body.className = 'bg-sign-dark text-foreground';
     } else {
       root.classList.remove('dark');
       root.classList.add('light');
+      document.body.className = 'bg-white text-gray-900';
     }
     
     // Animate the transition

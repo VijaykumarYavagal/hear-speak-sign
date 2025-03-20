@@ -20,6 +20,8 @@ const ThemeToggle = ({ className = '', compact = false }: ThemeToggleProps) => {
     return null;
   }
 
+  const isDark = theme === 'dark';
+
   return (
     <div 
       className={`flex items-center ${className}`}
@@ -30,7 +32,7 @@ const ThemeToggle = ({ className = '', compact = false }: ThemeToggleProps) => {
         className={`relative rounded-full transition-all duration-300 focus:outline-none ${
           compact ? 'w-10 h-5' : 'w-16 h-8'
         } ${
-          theme === 'dark' 
+          isDark
             ? 'bg-gray-800 shadow-inner border border-white/10' 
             : 'bg-blue-50 shadow-md border border-gray-200'
         }`}
@@ -39,12 +41,12 @@ const ThemeToggle = ({ className = '', compact = false }: ThemeToggleProps) => {
           className={`absolute top-1 transition-transform duration-300 rounded-full ${
             compact ? 'w-3 h-3' : 'w-6 h-6'
           } ${
-            theme === 'dark'
+            isDark
               ? 'right-1 bg-indigo-900 transform translate-x-0'
-              : 'left-1 bg-yellow-100 transform translate-x-0'
+              : 'left-1 bg-yellow-400 transform translate-x-0'
           }`}
         >
-          {theme === 'dark' ? (
+          {isDark ? (
             <div className="flex items-center justify-center h-full w-full">
               <svg 
                 viewBox="0 0 24 24" 
@@ -70,7 +72,7 @@ const ThemeToggle = ({ className = '', compact = false }: ThemeToggleProps) => {
                 viewBox="0 0 24 24" 
                 fill="none" 
                 stroke="currentColor" 
-                className="w-4 h-4 text-yellow-500"
+                className="w-4 h-4 text-yellow-600"
               >
                 <circle cx="12" cy="12" r="5" />
                 <line x1="12" y1="1" x2="12" y2="3" />
@@ -87,7 +89,7 @@ const ThemeToggle = ({ className = '', compact = false }: ThemeToggleProps) => {
         </div>
         
         {/* Background elements for visual appeal */}
-        {theme === 'dark' ? (
+        {isDark ? (
           <div className="absolute inset-0 rounded-full overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-indigo-900 to-gray-900"></div>
             <div className="absolute top-1 left-2 w-0.5 h-0.5 bg-white rounded-full"></div>

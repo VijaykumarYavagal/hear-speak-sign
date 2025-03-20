@@ -65,7 +65,7 @@ const LoginPage = () => {
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="username">Username</Label>
+                  <Label htmlFor="username" className={theme === 'dark' ? 'text-white' : 'text-gray-900'}>Username</Label>
                   <div className="relative">
                     <Input 
                       id="username"
@@ -73,14 +73,14 @@ const LoginPage = () => {
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
                       placeholder="Enter your username"
-                      className={`pl-10 pr-4 py-3 ${theme === 'dark' ? 'bg-black/30 border-white/20' : 'bg-white/50 border-white/40'} backdrop-blur-md`}
+                      className={`pl-10 pr-4 py-3 ${theme === 'dark' ? 'bg-black/30 border-white/20 text-white' : 'bg-white/50 border-white/40 text-gray-900'} backdrop-blur-md`}
                     />
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <User className={`absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 ${theme === 'dark' ? 'text-white/70' : 'text-gray-700'}`} />
                   </div>
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="password">Password</Label>
+                  <Label htmlFor="password" className={theme === 'dark' ? 'text-white' : 'text-gray-900'}>Password</Label>
                   <div className="relative">
                     <Input 
                       id="password"
@@ -88,9 +88,9 @@ const LoginPage = () => {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Enter your password"
-                      className={`pl-10 pr-4 py-3 ${theme === 'dark' ? 'bg-black/30 border-white/20' : 'bg-white/50 border-white/40'} backdrop-blur-md`}
+                      className={`pl-10 pr-4 py-3 ${theme === 'dark' ? 'bg-black/30 border-white/20 text-white' : 'bg-white/50 border-white/40 text-gray-900'} backdrop-blur-md`}
                     />
-                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <Lock className={`absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 ${theme === 'dark' ? 'text-white/70' : 'text-gray-700'}`} />
                   </div>
                 </div>
                 
@@ -100,23 +100,34 @@ const LoginPage = () => {
                       id="remember-me"
                       checked={rememberMe}
                       onCheckedChange={(checked) => setRememberMe(checked === true)}
+                      className={theme === 'dark' ? 'border-white/30' : 'border-gray-400'}
                     />
-                    <Label htmlFor="remember-me" className="text-sm">Remember me</Label>
+                    <Label htmlFor="remember-me" className={`text-sm ${theme === 'dark' ? 'text-white/90' : 'text-gray-700'}`}>Remember me</Label>
                   </div>
-                  <a href="#" className="text-sm text-primary hover:underline">
+                  <a href="#" className={`text-sm ${theme === 'dark' ? 'text-primary hover:text-primary/80' : 'text-primary hover:text-primary/80'}`}>
                     Forgot password?
                   </a>
                 </div>
                 
-                <Button 
-                  type="submit" 
-                  className={`w-full py-6 ${theme === 'dark' ? 'bg-white text-black hover:bg-white/90' : 'bg-white text-black hover:bg-white/90'} rounded-md shadow-md transition-all`}
-                >
-                  Login
-                </Button>
+                {/* Animated border for the button */}
+                <div className="relative group">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-blue-600 rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 overflow-hidden">
+                    <div className="absolute inset-0">
+                      <div className="w-1/3 h-1/6 bg-white/20 absolute left-0 top-1/2 transform -translate-y-1/2 animate-[border-run-right_4s_linear_infinite]"></div>
+                      <div className="w-1/3 h-1/6 bg-white/20 absolute right-0 top-1/2 transform -translate-y-1/2 animate-[border-run-left_4s_linear_infinite]"></div>
+                    </div>
+                  </div>
+                  
+                  <Button 
+                    type="submit" 
+                    className={`relative w-full py-6 ${theme === 'dark' ? 'bg-white text-black hover:bg-white/90' : 'bg-sign-primary text-white hover:bg-sign-primary/90'} rounded-md shadow-md transition-all`}
+                  >
+                    Login
+                  </Button>
+                </div>
                 
                 <div className="text-center mt-4">
-                  <p className="text-sm text-muted-foreground">
+                  <p className={`text-sm ${theme === 'dark' ? 'text-white/70' : 'text-gray-700'}`}>
                     Don't have an account?{' '}
                     <a href="#" className={`font-medium ${theme === 'dark' ? 'text-white hover:text-primary' : 'text-black hover:text-primary'}`}>
                       Register
@@ -127,6 +138,11 @@ const LoginPage = () => {
             </CardContent>
           </div>
         </Card>
+        
+        {/* Bottom border animation */}
+        <div className="w-full h-1 mt-4 overflow-hidden rounded-full bg-gradient-to-r from-transparent via-primary/20 to-transparent">
+          <div className="w-1/3 h-full bg-primary absolute left-0 animate-[border-run-right_4s_linear_infinite]"></div>
+        </div>
       </div>
     </div>
   );
