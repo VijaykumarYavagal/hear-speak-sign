@@ -16,13 +16,15 @@ import RecognitionPage from "./pages/Recognition";
 import ProgressPage from "./pages/Progress";
 import LanguagesPage from "./pages/Languages";
 import ReportsPage from "./pages/Reports";
+import LoginPage from "./pages/Login";
+import HelpPage from "./pages/Help";
 import Sidebar from "./components/Sidebar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [sidebarEnabled, setSidebarEnabled] = useState(false);
+  const [sidebarEnabled, setSidebarEnabled] = useState(true);
   
   return (
     <QueryClientProvider client={queryClient}>
@@ -45,6 +47,8 @@ const App = () => {
                     <Route path="/progress" element={<ProgressPage />} />
                     <Route path="/languages" element={<LanguagesPage />} />
                     <Route path="/reports" element={<ReportsPage />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/help" element={<HelpPage />} />
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                     <Route path="*" element={<NotFound />} />
                   </Routes>

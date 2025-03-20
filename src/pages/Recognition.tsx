@@ -14,17 +14,8 @@ const RecognitionPage = () => {
       
       <div className="glass-card p-6 mb-12 relative overflow-hidden">
         <div className="absolute inset-0 rounded-xl border border-white/10 overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-[2px] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-reverse"></div>
-          </div>
           <div className="absolute bottom-0 left-0 w-full h-[2px] overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-reverse"></div>
-          </div>
-          <div className="absolute left-0 top-0 w-[2px] h-full overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#f25f30] to-transparent animate-border-vertical-reverse"></div>
-          </div>
-          <div className="absolute right-0 top-0 w-[2px] h-full overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#f25f30] to-transparent animate-border-vertical-reverse"></div>
           </div>
         </div>
         
@@ -36,9 +27,6 @@ const RecognitionPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         <div className="glass-card p-6 text-center relative overflow-hidden">
           <div className="absolute inset-0 rounded-xl border border-white/10 overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-[2px] overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-reverse"></div>
-            </div>
             <div className="absolute bottom-0 left-0 w-full h-[2px] overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-reverse"></div>
             </div>
@@ -55,9 +43,6 @@ const RecognitionPage = () => {
         
         <div className="glass-card p-6 text-center relative overflow-hidden">
           <div className="absolute inset-0 rounded-xl border border-white/10 overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-[2px] overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-reverse"></div>
-            </div>
             <div className="absolute bottom-0 left-0 w-full h-[2px] overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-reverse"></div>
             </div>
@@ -74,9 +59,6 @@ const RecognitionPage = () => {
         
         <div className="glass-card p-6 text-center relative overflow-hidden">
           <div className="absolute inset-0 rounded-xl border border-white/10 overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-[2px] overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-reverse"></div>
-            </div>
             <div className="absolute bottom-0 left-0 w-full h-[2px] overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f25f30] to-transparent animate-border-reverse"></div>
             </div>

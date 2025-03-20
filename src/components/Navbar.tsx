@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Camera, Settings, Languages } from 'lucide-react';
+import { Menu, X, Home, HelpCircle, LogIn } from 'lucide-react';
 import { Button } from './ui/button';
 import ThemeToggle from './ThemeToggle';
 
@@ -41,23 +41,23 @@ const Navbar = () => {
           
           {/* Desktop menu */}
           <nav className="hidden md:flex items-center space-x-6">
-            <Link to="/recognition" className="text-foreground hover:text-sign-primary transition-colors duration-200">
-              Live Recognition
+            <Link to="/" className="text-foreground hover:text-sign-primary transition-colors duration-200">
+              <Home className="inline-block mr-1 w-4 h-4" />
+              Home
             </Link>
-            <Link to="/languages" className="text-foreground hover:text-sign-primary transition-colors duration-200">
-              Supported Languages
+            <Link to="/login" className="text-foreground hover:text-sign-primary transition-colors duration-200">
+              <LogIn className="inline-block mr-1 w-4 h-4" />
+              Login
+            </Link>
+            <Link to="/help" className="text-foreground hover:text-sign-primary transition-colors duration-200">
+              <HelpCircle className="inline-block mr-1 w-4 h-4" />
+              Help
             </Link>
             <Link to="/about" className="text-foreground hover:text-sign-primary transition-colors duration-200">
               About
             </Link>
             <Link to="/contact" className="text-foreground hover:text-sign-primary transition-colors duration-200">
               Contact
-            </Link>
-            <Link to="/progress" className="text-foreground hover:text-sign-primary transition-colors duration-200">
-              Progress
-            </Link>
-            <Link to="/reports" className="text-foreground hover:text-sign-primary transition-colors duration-200">
-              Reports
             </Link>
           </nav>
           
@@ -84,18 +84,28 @@ const Navbar = () => {
         <div className="md:hidden glass-card mt-2 mx-4 py-6 px-4 animate-scale-in">
           <nav className="flex flex-col space-y-4">
             <Link 
-              to="/recognition" 
+              to="/" 
               className="text-foreground hover:text-sign-primary transition-colors duration-200 py-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              Live Recognition
+              <Home className="inline-block mr-2 w-4 h-4" />
+              Home
             </Link>
             <Link 
-              to="/languages" 
+              to="/login" 
               className="text-foreground hover:text-sign-primary transition-colors duration-200 py-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              Supported Languages
+              <LogIn className="inline-block mr-2 w-4 h-4" />
+              Login
+            </Link>
+            <Link 
+              to="/help" 
+              className="text-foreground hover:text-sign-primary transition-colors duration-200 py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <HelpCircle className="inline-block mr-2 w-4 h-4" />
+              Help
             </Link>
             <Link 
               to="/about" 
@@ -110,20 +120,6 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
-            </Link>
-            <Link 
-              to="/progress" 
-              className="text-foreground hover:text-sign-primary transition-colors duration-200 py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Progress
-            </Link>
-            <Link 
-              to="/reports" 
-              className="text-foreground hover:text-sign-primary transition-colors duration-200 py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Reports
             </Link>
             <div className="flex items-center py-2">
               <ThemeToggle />

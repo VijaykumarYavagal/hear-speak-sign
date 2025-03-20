@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   Home, 
   Video, 
@@ -12,7 +12,9 @@ import {
   Bookmark,
   ChevronLeft,
   ChevronRight,
-  LogOut
+  LogOut,
+  HelpCircle,
+  LogIn
 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Switch } from './ui/switch';
@@ -21,6 +23,7 @@ import ThemeToggle from './ThemeToggle';
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [webcamEnabled, setWebcamEnabled] = useState(false);
+  const location = useLocation();
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
@@ -28,6 +31,10 @@ const Sidebar = () => {
 
   const toggleWebcam = () => {
     setWebcamEnabled(!webcamEnabled);
+  };
+
+  const isActive = (path: string) => {
+    return location.pathname === path;
   };
 
   return (
@@ -75,7 +82,7 @@ const Sidebar = () => {
         <nav className="space-y-1 px-2">
           <Link
             to="/"
-            className="flex items-center space-x-3 px-3 py-2 rounded-md text-sm font-medium hover:bg-white/5 transition-colors"
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md text-sm font-medium hover:bg-white/5 transition-colors ${isActive('/') ? 'bg-white/10 text-sign-primary' : ''}`}
           >
             <Home className="w-5 h-5" />
             {!isCollapsed && <span>Home</span>}
@@ -83,7 +90,7 @@ const Sidebar = () => {
           
           <Link
             to="/recognition"
-            className="flex items-center space-x-3 px-3 py-2 rounded-md text-sm font-medium hover:bg-white/5 transition-colors"
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md text-sm font-medium hover:bg-white/5 transition-colors ${isActive('/recognition') ? 'bg-white/10 text-sign-primary' : ''}`}
           >
             <Video className="w-5 h-5" />
             {!isCollapsed && <span>Recognition</span>}
@@ -91,7 +98,7 @@ const Sidebar = () => {
           
           <Link
             to="/languages"
-            className="flex items-center space-x-3 px-3 py-2 rounded-md text-sm font-medium hover:bg-white/5 transition-colors"
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md text-sm font-medium hover:bg-white/5 transition-colors ${isActive('/languages') ? 'bg-white/10 text-sign-primary' : ''}`}
           >
             <Languages className="w-5 h-5" />
             {!isCollapsed && <span>Languages</span>}
@@ -99,15 +106,23 @@ const Sidebar = () => {
           
           <Link
             to="/progress"
-            className="flex items-center space-x-3 px-3 py-2 rounded-md text-sm font-medium hover:bg-white/5 transition-colors"
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md text-sm font-medium hover:bg-white/5 transition-colors ${isActive('/progress') ? 'bg-white/10 text-sign-primary' : ''}`}
           >
             <BarChart2 className="w-5 h-5" />
             {!isCollapsed && <span>Progress</span>}
           </Link>
           
           <Link
+            to="/reports"
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md text-sm font-medium hover:bg-white/5 transition-colors ${isActive('/reports') ? 'bg-white/10 text-sign-primary' : ''}`}
+          >
+            <BarChart2 className="w-5 h-5" />
+            {!isCollapsed && <span>Reports</span>}
+          </Link>
+          
+          <Link
             to="/community"
-            className="flex items-center space-x-3 px-3 py-2 rounded-md text-sm font-medium hover:bg-white/5 transition-colors"
+            className={`flex items-center space-x-3 px-3 py-2 rounded-md text-sm font-medium hover:bg-white/5 transition-colors ${isActive('/community') ? 'bg-white/10 text-sign-primary' : ''}`}
           >
             <Users className="w-5 h-5" />
             {!isCollapsed && <span>Community</span>}
@@ -155,7 +170,7 @@ const Sidebar = () => {
             {!isCollapsed && <span>Theme</span>}
           </div>
           {!isCollapsed ? (
-            <ThemeToggle />
+            <ThemeToggle compact={false} />
           ) : (
             <ThemeToggle compact={true} />
           )}

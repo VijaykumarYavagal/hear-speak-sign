@@ -215,11 +215,11 @@
 }
 
 .animate-border-reverse {
-  animation: border-reverse 8s infinite ease-in-out;
+  animation: border-reverse 10s infinite ease-in-out;
 }
 
 .animate-border-vertical-reverse {
-  animation: border-vertical-reverse 8s infinite ease-in-out;
+  animation: border-vertical-reverse 10s infinite ease-in-out;
 }
 
 .animate-shake {
