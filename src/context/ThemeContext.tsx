@@ -51,6 +51,18 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       document.body.className = 'bg-white text-gray-900';
     }
     
+    // Ensure all text elements properly update their colors based on theme
+    const textElements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, a, button, label');
+    textElements.forEach(el => {
+      if (theme === 'dark') {
+        el.classList.remove('text-gray-900');
+        el.classList.add('text-white');
+      } else {
+        el.classList.remove('text-white');
+        el.classList.add('text-gray-900');
+      }
+    });
+    
     // Animate the transition
     root.style.transition = 'background-color 0.5s ease-in-out, color 0.5s ease-in-out';
   }, [theme]);
