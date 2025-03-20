@@ -19,12 +19,18 @@ import ReportsPage from "./pages/Reports";
 import LoginPage from "./pages/Login";
 import HelpPage from "./pages/Help";
 import Sidebar from "./components/Sidebar";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import CommunityPage from "./pages/Community";
+import SettingsPage from "./pages/Settings";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [sidebarEnabled, setSidebarEnabled] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
   
   return (
     <QueryClientProvider client={queryClient}>
@@ -34,10 +40,10 @@ const App = () => {
           <Sonner />
           <BrowserRouter>
             <div className="flex">
-              {sidebarEnabled && <Sidebar />}
-              <div className={`flex-1 ${sidebarEnabled ? 'ml-64' : ''}`}>
-                <Navbar />
-                <main className={`min-h-screen ${sidebarEnabled ? 'pt-16' : 'pt-24'}`}>
+              {sidebarOpen && <Sidebar toggleSidebar={toggleSidebar} />}
+              <div className="flex-1">
+                <Navbar toggleSidebar={toggleSidebar} />
+                <main className="min-h-screen pt-24">
                   <Routes>
                     <Route path="/" element={<Index />} />
                     <Route path="/about" element={<AboutPage />} />
@@ -49,6 +55,8 @@ const App = () => {
                     <Route path="/reports" element={<ReportsPage />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/help" element={<HelpPage />} />
+                    <Route path="/community" element={<CommunityPage />} />
+                    <Route path="/settings" element={<SettingsPage />} />
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                     <Route path="*" element={<NotFound />} />
                   </Routes>

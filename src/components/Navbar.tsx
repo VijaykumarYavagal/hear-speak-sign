@@ -1,11 +1,15 @@
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Home, HelpCircle, LogIn } from 'lucide-react';
+import { Menu, X, HelpCircle, LogIn, PanelLeft } from 'lucide-react';
 import { Button } from './ui/button';
 import ThemeToggle from './ThemeToggle';
 
-const Navbar = () => {
+interface NavbarProps {
+  toggleSidebar: () => void;
+}
+
+const Navbar = ({ toggleSidebar }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -28,21 +32,31 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2">
-            <svg 
-              viewBox="0 0 24 24" 
-              className="w-8 h-8 text-sign-primary"
-              fill="currentColor"
+          <div className="flex items-center space-x-2">
+            <Button 
+              variant="ghost" 
+              size="icon"
+              onClick={toggleSidebar}
+              className="mr-2"
             >
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm2-9.9c-.06-.39-.22-.75-.45-1.05.31-.35.53-.79.54-1.3 0-1.06-.87-1.75-1.65-1.75-.62 0-1.2.49-1.2 1.08 0 .56.4 1.01.93 1.08.51.07.97.42.99.93 0 1.32-1.3 1.35-1.34.91-.03-.31.17-.57.31-.57.16 0 .29.27.31.54l1.14-.83c-.6-.68-1.01-1.23-1.01-1.62 0-.56.45-1.01 1.01-1.01s1.01.45 1.01 1.01c0 .39-.23.84-.57 1.32.35.3.57.71.57 1.17 0 .73-.41 1.34-.97 1.67.33.4.42.93.42 1.42 0 1.77-1.58 2.98-3.09 2.98-.94 0-1.66-.56-1.66-1.45 0-.34.11-.64.3-.88l.52.49c-.1.16-.15.34-.15.52 0 .5.38.88.88.88 1.29 0 2.28-.82 2.28-2.01 0-.32-.06-.65-.22-.96l-.84.84z" />
-            </svg>
-            <span className="font-display font-bold text-xl">SignConnect</span>
-          </Link>
+              <PanelLeft className="h-5 w-5" />
+              <span className="sr-only">Toggle Sidebar</span>
+            </Button>
+            <Link to="/" className="flex items-center space-x-2">
+              <svg 
+                viewBox="0 0 24 24" 
+                className="w-8 h-8 text-sign-primary"
+                fill="currentColor"
+              >
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm2-9.9c-.06-.39-.22-.75-.45-1.05.31-.35.53-.79.54-1.3 0-1.06-.87-1.75-1.65-1.75-.62 0-1.2.49-1.2 1.08 0 .56.4 1.01.93 1.08.51.07.97.42.99.93 0 1.32-1.3 1.35-1.34.91-.03-.31.17-.57.31-.57.16 0 .29.27.31.54l1.14-.83c-.6-.68-1.01-1.23-1.01-1.62 0-.56.45-1.01 1.01-1.01s1.01.45 1.01 1.01c0 .39-.23.84-.57 1.32.35.3.57.71.57 1.17 0 .73-.41 1.34-.97 1.67.33.4.42.93.42 1.42 0 1.77-1.58 2.98-3.09 2.98-.94 0-1.66-.56-1.66-1.45 0-.34.11-.64.3-.88l.52.49c-.1.16-.15.34-.15.52 0 .5.38.88.88.88 1.29 0 2.28-.82 2.28-2.01 0-.32-.06-.65-.22-.96l-.84.84z" />
+              </svg>
+              <span className="font-display font-bold text-xl">SignConnect</span>
+            </Link>
+          </div>
           
           {/* Desktop menu */}
           <nav className="hidden md:flex items-center space-x-6">
             <Link to="/" className="text-foreground hover:text-sign-primary transition-colors duration-200">
-              <Home className="inline-block mr-1 w-4 h-4" />
               Home
             </Link>
             <Link to="/login" className="text-foreground hover:text-sign-primary transition-colors duration-200">
@@ -88,7 +102,6 @@ const Navbar = () => {
               className="text-foreground hover:text-sign-primary transition-colors duration-200 py-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              <Home className="inline-block mr-2 w-4 h-4" />
               Home
             </Link>
             <Link 

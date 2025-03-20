@@ -25,10 +25,14 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     
     if (savedTheme) {
       setTheme(savedTheme);
+      document.documentElement.classList.toggle('light', savedTheme === 'light');
+      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
     } else if (prefersDark) {
       setTheme('dark');
+      document.documentElement.classList.add('dark');
     } else {
       setTheme('light');
+      document.documentElement.classList.add('light');
     }
   }, []);
 
@@ -38,9 +42,11 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     localStorage.setItem('theme', theme);
     
     if (theme === 'dark') {
+      root.classList.remove('light');
       root.classList.add('dark');
     } else {
       root.classList.remove('dark');
+      root.classList.add('light');
     }
     
     // Animate the transition
@@ -48,7 +54,10 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === 'dark' ? 'light' : 'dark'));
+    setTheme(prevTheme => {
+      const newTheme = prevTheme === 'dark' ? 'light' : 'dark';
+      return newTheme;
+    });
   };
 
   return (
